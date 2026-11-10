@@ -1,0 +1,85 @@
+# Intégration continue : la vérification complète sous Linux (ce qui a été
+# exécuté pendant le développement) et, surtout, la compilation Windows réelle
+# avec les installateurs, que l'environnement de développement ne permettait
+# pas. Les installateurs et les mesures Windows sont publiés comme artefacts.
+#
+# Ce fichier n'a pas pu être exécuté avant la livraison (pas d'accès à
+# GitHub depuis l'environnement de développement).
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  linux:
+    name: Linux — noyau, interface, tests de bout en bout
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Dépendances
+        run: |
+          npm install
+          npx playwright install --with-deps chromium
+      - name: Noyau Rust (tests unitaires et d'intégration)
+        run: cargo test --release --manifest-path crates/swiftpad-core/Cargo.toml
+      - name: Erreurs système réelles (disque plein, accès refusés ; nécessite root)
+        continue-on-error: true
+        run: sudo -E env "PATH=$PATH" bash scripts/test-core.sh
+      - name: Vérifications partielles de la couche native
+        run: |
+          bash tools/tauri-stub-check/run.sh
+          bash tools/windows-cfg-check/run.sh
+      - name: Interface (types, tests unitaires, compilation)
+        run: |
+          npm run typecheck
+          npm run test:unit
+          npm run build:web
+      - name: Hors ligne et contrat interface ↔ couche native
+        run: |
+          npm run check:offline
+          npm run check:ipc
+      - name: Tests de bout en bout
+        run: |
+          npm run build:harness
+          npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resultats-linux
+          path: target-web/e2e-results.json
+          if-no-files-found: warn
+
+  windows:
+    name: Windows — tests, application, installateurs, mesures
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Tests et compilation (scripts\build-windows.ps1)
+        shell: pwsh
+        run: ./scripts/build-windows.ps1
+      - name: Banc d'essai de l'exécutable réel
+        if: always()
+        continue-on-error: true
+        shell: pwsh
+        run: ./scripts/bench-windows.ps1 -Runs 5 -Core
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: swiftpad-windows
+          path: |
+            src-tauri/target/release/swiftpad.exe
+            src-tauri/target/release/bundle/nsis/*.exe
+            src-tauri/target/release/bundle/msi/*.msi
+            bench/results/windows-tauri.json
+            bench/results/core-windows.json
+          if-no-files-found: warn

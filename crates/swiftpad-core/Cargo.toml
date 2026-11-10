@@ -1,0 +1,32 @@
+[package]
+name = "swiftpad-core"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "MIT"
+description = "Noyau de SwiftPad sans aucune dépendance externe : encodages, fins de ligne, enregistrement atomique, opérations fichiers, recherche annulable, paramètres, session et récupération."
+publish = false
+
+# Aucune dépendance : le noyau doit se compiler et se tester hors ligne,
+# et rester auditable. Les quelques appels Windows passent par une FFI
+# minimale déclarée à la main (voir src/platform.rs).
+[dependencies]
+
+[lib]
+path = "src/lib.rs"
+
+# Harnais HTTP local utilisé par les tests de bout en bout et le mode
+# « navigateur » de développement. Il n'est pas inclus dans l'application.
+[[bin]]
+name = "swiftpad-harness"
+path = "src/bin/harness.rs"
+
+[[example]]
+name = "bench"
+path = "examples/bench.rs"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = "thin"
+debug = false

@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "Moindre privilège : la fenêtre locale peut seulement écouter les événements émis par l'application. Les commandes de SwiftPad (rpc, boîtes de dialogue, « Afficher dans l’Explorateur Windows ») sont définies par l'application et valident elles-mêmes leurs arguments ; aucune API de plugin n'est exposée au JavaScript, aucune URL distante n'est autorisée.",
+  "windows": ["main"],
+  "permissions": ["core:event:allow-listen", "core:event:allow-unlisten"]
+}

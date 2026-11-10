@@ -1,0 +1,35 @@
+[package]
+name = "swiftpad"
+version = "0.1.0"
+description = "SwiftPad — éditeur de texte sobre et léger, hors ligne"
+authors = ["SwiftPad"]
+license = "MIT"
+edition = "2021"
+rust-version = "1.80"
+publish = false
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+# Dépendances limitées au strict nécessaire :
+# - tauri : fenêtre native et WebView2 ;
+# - tauri-plugin-dialog : boîtes Ouvrir/Enregistrer/Dossier natives de Windows ;
+# - tauri-plugin-opener : « Afficher dans l'Explorateur », liens http(s) ;
+# - tauri-plugin-single-instance : fichiers ouverts depuis l'Explorateur
+#   envoyés à la fenêtre existante plutôt qu'à un second processus.
+# Tout le reste (fichiers, encodages, recherche…) est dans swiftpad-core,
+# sans aucune dépendance externe.
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-single-instance = "2"
+# Désérialisation des arguments des commandes (déjà utilisé par Tauri : aucun poids ajouté).
+serde = { version = "1", features = ["derive"] }
+swiftpad-core = { path = "../crates/swiftpad-core" }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true

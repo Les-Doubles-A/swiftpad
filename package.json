@@ -1,0 +1,35 @@
+{
+  "name": "swiftpad",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Éditeur de texte sobre et léger pour Windows (Tauri 2) : un écran pour écrire.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build:web": "node scripts/build-web.mjs",
+    "dev:web": "node scripts/build-web.mjs --serve",
+    "typecheck": "tsc --noEmit -p .",
+    "test:unit": "node scripts/test-unit.mjs",
+    "test:core": "cargo test --release --manifest-path crates/swiftpad-core/Cargo.toml",
+    "test:e2e": "node tests/e2e/run.mjs",
+    "bench": "node bench/run.mjs",
+    "check:offline": "node scripts/check-offline.mjs",
+    "tauri": "tauri",
+    "check:native": "bash tools/tauri-stub-check/run.sh && bash tools/windows-cfg-check/run.sh",
+    "test:system": "bash scripts/test-core.sh",
+    "build:harness": "cargo build --release --manifest-path crates/swiftpad-core/Cargo.toml --bin swiftpad-harness",
+    "check:ipc": "node scripts/check-ipc.mjs"
+  },
+  "dependencies": {
+    "markdown-it": "14.2.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.56.1",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

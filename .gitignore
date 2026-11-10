@@ -1,0 +1,27 @@
+# Dépendances et sorties de compilation
+node_modules/
+dist/
+target/
+target-web/
+crates/swiftpad-core/target/
+src-tauri/target/
+src-tauri/gen/
+
+# Résultats locaux des bancs d'essai (ceux de référence sont versionnés à part)
+bench/results/*.tmp
+
+# Divers
+*.log
+.DS_Store
+Thumbs.db
+
+# Ajouts : builds, secrets et sorties d'installeur
+installer/Output/
+.env
+local.properties
+__pycache__/
+.venv/
+.gradle/
+.kotlin/
+build/
+.claude/settings.local.json

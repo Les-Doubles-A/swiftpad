@@ -1,0 +1,131 @@
+{
+  "tool": "bench/run.mjs",
+  "started": "2026-10-14T09:46:07.703Z",
+  "finished": "2026-10-14T09:46:35.630Z",
+  "runs": 7,
+  "quick": false,
+  "machine": {
+    "platform": "linux-x64",
+    "os": "Linux 6.18.44-fc-v114",
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "logicalCpus": 2,
+    "memoryGB": 7.8,
+    "node": "v22.22.0",
+    "chromium": "141.0.7390.37"
+  },
+  "notes": "Version précédente (avec explorateur ; police à chasse fixe 14 px, sans retour à la ligne par défaut), mesurée le 14/10/2026 sur la même VM, juste avant la version actuelle, pour comparaison. Groupes open, typing, find uniquement. Harnais HTTP local + Chromium headless (Playwright), cache disque chaud. Pas Tauri/WebView2.",
+  "results": [
+    {
+      "group": "open",
+      "name": "ouvrir 1 Ko → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 18,
+      "min": 17.9,
+      "max": 20
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 100 Ko → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 33.1,
+      "min": 32.2,
+      "max": 46
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 512 Ko → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 136.1,
+      "min": 133,
+      "max": 154.3
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 1 Mo → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 271,
+      "min": 231.7,
+      "max": 352.6
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 2 Mo → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 499,
+      "min": 445.4,
+      "max": 630.3
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 10 Mo (lecteur gros fichier) → premières lignes",
+      "unit": "ms",
+      "runs": 7,
+      "median": 34.3,
+      "min": 34.1,
+      "max": 65.9
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 100 Mo (lecteur gros fichier) → premières lignes",
+      "unit": "ms",
+      "runs": 7,
+      "median": 32.9,
+      "min": 32.8,
+      "max": 33.2
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 1 Ko",
+      "unit": "ms",
+      "runs": 59,
+      "median": 11.1,
+      "min": 3.3,
+      "max": 18.8,
+      "p95": 17.9
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 512 Ko",
+      "unit": "ms",
+      "runs": 59,
+      "median": 19,
+      "min": 13.3,
+      "max": 29.1,
+      "p95": 25.1
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 1 Mo",
+      "unit": "ms",
+      "runs": 59,
+      "median": 29.8,
+      "min": 23.5,
+      "max": 65.4,
+      "p95": 40.8
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 2 Mo",
+      "unit": "ms",
+      "runs": 59,
+      "median": 63.6,
+      "min": 48.7,
+      "max": 227.8,
+      "p95": 109.7
+    },
+    {
+      "group": "find",
+      "name": "saisie → 32 000 occurrences comptées (dont anti-rebond 150 ms)",
+      "unit": "ms",
+      "runs": 7,
+      "median": 177.9,
+      "min": 175.6,
+      "max": 179.7
+    }
+  ]
+}

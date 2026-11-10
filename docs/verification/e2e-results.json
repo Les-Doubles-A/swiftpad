@@ -1,0 +1,305 @@
+{
+  "date": "2026-10-14T09:53:49.424Z",
+  "results": [
+    {
+      "name": "ouvrir, modifier et enregistrer un TXT (CRLF conservé)",
+      "file": "editing",
+      "ok": true,
+      "ms": 408
+    },
+    {
+      "name": "nouveau document puis Enregistrer sous (fin de ligne par défaut CRLF)",
+      "file": "editing",
+      "ok": true,
+      "ms": 330
+    },
+    {
+      "name": "fichier vide",
+      "file": "editing",
+      "ok": true,
+      "ms": 227
+    },
+    {
+      "name": "encodages : UTF-16 LE/BE avec BOM, UTF-8 BOM et Windows-1252 conservés",
+      "file": "editing",
+      "ok": true,
+      "ms": 565
+    },
+    {
+      "name": "caractère impossible en Windows-1252 : enregistrement bloqué, rien n’est remplacé",
+      "file": "editing",
+      "ok": true,
+      "ms": 355
+    },
+    {
+      "name": "UTF-8 invalide : remplacement signalé et confirmation avant enregistrement",
+      "file": "editing",
+      "ok": true,
+      "ms": 461
+    },
+    {
+      "name": "fins de ligne : LF conservé, conversion explicite, CR seul, mélange signalé",
+      "file": "editing",
+      "ok": true,
+      "ms": 505
+    },
+    {
+      "name": "recherche, suivant/précédent, casse, mot entier, expression régulière, remplacement",
+      "file": "editing",
+      "ok": true,
+      "ms": 487
+    },
+    {
+      "name": "annuler et rétablir, isolés par onglet (pile native de Chromium contournée)",
+      "file": "editing",
+      "ok": true,
+      "ms": 554
+    },
+    {
+      "name": "fermeture d’un document modifié : annuler, ne pas enregistrer, enregistrer",
+      "file": "editing",
+      "ok": true,
+      "ms": 415
+    },
+    {
+      "name": "conflit : fichier modifié par un autre programme",
+      "file": "editing",
+      "ok": true,
+      "ms": 851
+    },
+    {
+      "name": "fichier supprimé ou déplacé pendant son ouverture",
+      "file": "editing",
+      "ok": true,
+      "ms": 471
+    },
+    {
+      "name": "fichier en lecture seule : édition bloquée, Enregistrer propose un autre nom",
+      "file": "editing",
+      "ok": true,
+      "ms": 500
+    },
+    {
+      "name": "onglets discrets : masqués avec un seul document ; Ctrl+Tab, Ctrl+1…9, glisser, onglet vierge remplacé",
+      "file": "editing",
+      "ok": true,
+      "ms": 523
+    },
+    {
+      "name": "raccourcis : aller à la ligne, date (F5), sélection de ligne, retour à la ligne, zoom",
+      "file": "editing",
+      "ok": true,
+      "ms": 415
+    },
+    {
+      "name": "frappe pendant le chargement : rien n’est perdu (rejouée à l’affichage)",
+      "file": "editing",
+      "ok": true,
+      "ms": 2416
+    },
+    {
+      "name": "fin de chargement : le focus n’est pas repris à la palette ouverte entre-temps",
+      "file": "editing",
+      "ok": true,
+      "ms": 867
+    },
+    {
+      "name": "écran d’écriture : seulement le texte et la barre de menus (ni panneau, ni barre d’outils, ni barre d’état)",
+      "file": "writing",
+      "ok": true,
+      "ms": 732
+    },
+    {
+      "name": "colonne centrée (étroite, moyenne, pleine largeur) et interligne, depuis les préférences, conservés",
+      "file": "writing",
+      "ok": true,
+      "ms": 1306
+    },
+    {
+      "name": "thèmes (clair, sombre, sépia) et couleurs libres : appliqués, conservés, réinitialisables",
+      "file": "writing",
+      "ok": true,
+      "ms": 1359
+    },
+    {
+      "name": "apparence : valeurs invalides du fichier de paramètres ignorées (couleur, largeur, interligne)",
+      "file": "writing",
+      "ok": true,
+      "ms": 214
+    },
+    {
+      "name": "palette : documents ouverts et récents (Ctrl+E), commandes (Ctrl+Maj+P), ligne",
+      "file": "writing",
+      "ok": true,
+      "ms": 476
+    },
+    {
+      "name": "noms Unicode et espaces : ouverture et enregistrement",
+      "file": "writing",
+      "ok": true,
+      "ms": 721
+    },
+    {
+      "name": "paramètres conservés après redémarrage",
+      "file": "files",
+      "ok": true,
+      "ms": 1273
+    },
+    {
+      "name": "paramètres corrompus : démarrage avec les valeurs par défaut, fichier conservé",
+      "file": "files",
+      "ok": true,
+      "ms": 157
+    },
+    {
+      "name": "paramètre invalide : seul ce champ reprend sa valeur par défaut",
+      "file": "files",
+      "ok": true,
+      "ms": 153
+    },
+    {
+      "name": "session restaurée (sans charger les onglets inactifs), désactivable",
+      "file": "files",
+      "ok": true,
+      "ms": 2523
+    },
+    {
+      "name": "récupération après un arrêt inattendu (copie locale), puis suppression des copies",
+      "file": "files",
+      "ok": true,
+      "ms": 2648
+    },
+    {
+      "name": "images, SVG (sans script) et fichiers binaires : aperçu ou fiche, jamais chargés comme texte",
+      "file": "files",
+      "ok": true,
+      "ms": 536
+    },
+    {
+      "name": "gros fichier : lecture rapide sans blocage, aller à la ligne, recherche, édition sur demande",
+      "file": "files",
+      "ok": true,
+      "ms": 1112
+    },
+    {
+      "name": "fichier moyen (3 Mo) : lecture rapide puis « Modifier quand même »",
+      "file": "files",
+      "ok": true,
+      "ms": 2408
+    },
+    {
+      "name": "accès refusés réels (utilisateur sans privilèges)",
+      "file": "files",
+      "ok": true,
+      "ms": 497
+    },
+    {
+      "name": "disque plein : erreur explicite, fichier d’origine intact",
+      "file": "files",
+      "ok": true,
+      "ms": 294
+    },
+    {
+      "name": "aucune requête réseau : tout reste sur 127.0.0.1 (scénario complet)",
+      "file": "files",
+      "ok": true,
+      "ms": 1256
+    },
+    {
+      "name": "mesures de démarrage : écrites seulement si SWIFTPAD_PERF_LOG est définie ; « À propos » les affiche",
+      "file": "files",
+      "ok": true,
+      "ms": 2695
+    },
+    {
+      "name": "gros fichier binaire (3 Mo) : fiche d’information, jamais affiché comme texte sans confirmation",
+      "file": "files",
+      "ok": true,
+      "ms": 433
+    },
+    {
+      "name": "Markdown : aperçu désactivé par défaut, modes source/partagé/aperçu, rendu complet",
+      "file": "markdown",
+      "ok": true,
+      "ms": 911
+    },
+    {
+      "name": "Markdown : rendu sécurisé (aucun script, gestionnaire, iframe ni lien actif)",
+      "file": "markdown",
+      "ok": true,
+      "ms": 804
+    },
+    {
+      "name": "Markdown : table des matières facultative",
+      "file": "markdown",
+      "ok": true,
+      "ms": 246
+    },
+    {
+      "name": "quitter avec plusieurs documents modifiés : annuler, tout enregistrer",
+      "file": "robustness",
+      "ok": true,
+      "ms": 400
+    },
+    {
+      "name": "fermeture rapide (option) : modifications restaurées au lancement suivant sans question",
+      "file": "robustness",
+      "ok": true,
+      "ms": 554
+    },
+    {
+      "name": "120 onglets : ouverture, navigation, fermeture sans fuite de nœuds DOM",
+      "file": "robustness",
+      "ok": true,
+      "ms": 2095
+    },
+    {
+      "name": "clavier seul : menus (Alt, F10, flèches, mnémoniques), F6, Échap, rôles ARIA",
+      "file": "robustness",
+      "ok": true,
+      "ms": 276
+    },
+    {
+      "name": "aucun conflit de raccourcis ; raccourcis du navigateur neutralisés (F5, Ctrl+R, Alt+←)",
+      "file": "robustness",
+      "ok": true,
+      "ms": 466
+    },
+    {
+      "name": "fenêtre étroite (520 px) et large (1920 px) : pas de débordement, éditeur utilisable",
+      "file": "robustness",
+      "ok": true,
+      "ms": 403
+    },
+    {
+      "name": "impression : contenu préparé (texte du document, sans l’interface)",
+      "file": "robustness",
+      "ok": true,
+      "ms": 156
+    },
+    {
+      "name": "recherche réactive dans un document de 2 Mo (seuil d’édition relevé à 2 Mo)",
+      "file": "robustness",
+      "ok": true,
+      "ms": 3451
+    },
+    {
+      "name": "document ouvert en tant que lien symbolique : cible signalée et préservée",
+      "file": "robustness",
+      "ok": true,
+      "ms": 331
+    },
+    {
+      "name": "nouveau document : Enregistrer sous dans un dossier inexistant, puis valide",
+      "file": "robustness",
+      "ok": true,
+      "ms": 297
+    },
+    {
+      "name": "contrat avec la couche native (Tauri simulé) : dialogues, titre, thème, événements, fermeture",
+      "file": "native",
+      "ok": true,
+      "ms": 1182
+    }
+  ]
+}

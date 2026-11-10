@@ -1,0 +1,267 @@
+{
+  "tool": "bench/run.mjs",
+  "started": "2026-10-14T09:53:54.728Z",
+  "finished": "2026-10-14T09:55:24.815Z",
+  "runs": 7,
+  "quick": false,
+  "machine": {
+    "platform": "linux-x64",
+    "os": "Linux 6.18.44-fc-v114",
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "logicalCpus": 2,
+    "memoryGB": 7.8,
+    "node": "v22.22.0",
+    "chromium": "141.0.7390.37"
+  },
+  "notes": "Harnais HTTP local + Chromium headless (Playwright), cache disque chaud. Pas Tauri/WebView2.",
+  "results": [
+    {
+      "group": "startup",
+      "name": "lancement Chromium + harnais → interface prête",
+      "unit": "ms",
+      "runs": 7,
+      "median": 199,
+      "min": 176,
+      "max": 209
+    },
+    {
+      "group": "startup",
+      "name": "idem, fichier de 1 Mo passé en argument → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 746,
+      "min": 672,
+      "max": 811
+    },
+    {
+      "group": "startup",
+      "name": "navigation → interface prête (moteur web déjà lancé)",
+      "unit": "ms",
+      "runs": 7,
+      "median": 84.2,
+      "min": 70.9,
+      "max": 102.9
+    },
+    {
+      "group": "startup",
+      "name": "navigation → premier rendu (FCP)",
+      "unit": "ms",
+      "runs": 3,
+      "median": 88,
+      "min": 80,
+      "max": 96
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 1 Ko → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 16.8,
+      "min": 16.4,
+      "max": 17.1
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 100 Ko → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 54.9,
+      "min": 49.3,
+      "max": 57.1
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 512 Ko → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 261.8,
+      "min": 243.3,
+      "max": 325.8
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 1 Mo → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 463.5,
+      "min": 439.2,
+      "max": 529.5
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 2 Mo → texte affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 1138.3,
+      "min": 1074.4,
+      "max": 1223
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 10 Mo (lecteur gros fichier) → premières lignes",
+      "unit": "ms",
+      "runs": 7,
+      "median": 34.6,
+      "min": 34.5,
+      "max": 66.2
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 100 Mo (lecteur gros fichier) → premières lignes",
+      "unit": "ms",
+      "runs": 7,
+      "median": 33.2,
+      "min": 32.3,
+      "max": 34
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 512 Ko → texte affiché, sans retour à la ligne",
+      "unit": "ms",
+      "runs": 7,
+      "median": 262.7,
+      "min": 220.2,
+      "max": 348.7
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 1 Mo → texte affiché, sans retour à la ligne",
+      "unit": "ms",
+      "runs": 7,
+      "median": 509.1,
+      "min": 379,
+      "max": 599
+    },
+    {
+      "group": "open",
+      "name": "ouvrir 2 Mo → texte affiché, sans retour à la ligne",
+      "unit": "ms",
+      "runs": 7,
+      "median": 834.7,
+      "min": 794.4,
+      "max": 919.8
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 1 Ko",
+      "unit": "ms",
+      "runs": 59,
+      "median": 9.3,
+      "min": 1.6,
+      "max": 17.4,
+      "p95": 17.2
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 512 Ko",
+      "unit": "ms",
+      "runs": 59,
+      "median": 15.9,
+      "min": 10.5,
+      "max": 25.7,
+      "p95": 23.7
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 1 Mo",
+      "unit": "ms",
+      "runs": 59,
+      "median": 27.6,
+      "min": 21.6,
+      "max": 45,
+      "p95": 41.5
+    },
+    {
+      "group": "typing",
+      "name": "frappe dans un document de 2 Mo",
+      "unit": "ms",
+      "runs": 59,
+      "median": 57.6,
+      "min": 47.7,
+      "max": 285.2,
+      "p95": 116.5
+    },
+    {
+      "group": "find",
+      "name": "saisie → 32 000 occurrences comptées (dont anti-rebond 150 ms)",
+      "unit": "ms",
+      "runs": 7,
+      "median": 196.6,
+      "min": 193.7,
+      "max": 216.8
+    },
+    {
+      "group": "bigsearch",
+      "name": "rechercher un mot absent dans 100 Mo → « 0 résultat » affiché",
+      "unit": "ms",
+      "runs": 7,
+      "median": 433.3,
+      "min": 416.4,
+      "max": 549.7
+    },
+    {
+      "group": "tabs",
+      "name": "ouvrir 100 fichiers → 100 onglets affichés",
+      "unit": "ms",
+      "runs": 5,
+      "median": 400.1,
+      "min": 341.9,
+      "max": 526.5
+    },
+    {
+      "group": "tabs",
+      "name": "changer d’onglet (Ctrl+Tab) → image suivante",
+      "unit": "ms",
+      "runs": 40,
+      "median": 17.9,
+      "min": 10.5,
+      "max": 27,
+      "p95": 26.2
+    },
+    {
+      "group": "memory",
+      "name": "au repos, document vide",
+      "jsHeapUsedMB": 1.4,
+      "domNodes": 191,
+      "chromiumPssMB": 174.8,
+      "chromiumProcesses": 6,
+      "coreRssMB": 2.7
+    },
+    {
+      "group": "memory",
+      "name": "10 documents de 100 Ko ouverts",
+      "jsHeapUsedMB": 1.5,
+      "domNodes": 4141,
+      "chromiumPssMB": 197.6,
+      "chromiumProcesses": 6,
+      "coreRssMB": 3
+    },
+    {
+      "group": "memory",
+      "name": "1 document de 1 Mo en édition",
+      "jsHeapUsedMB": 1.5,
+      "domNodes": 39520,
+      "chromiumPssMB": 242.9,
+      "chromiumProcesses": 6,
+      "coreRssMB": 2.8
+    },
+    {
+      "group": "memory",
+      "name": "100 onglets de 10 Ko",
+      "jsHeapUsedMB": 1.7,
+      "domNodes": 1267,
+      "chromiumPssMB": 198.8,
+      "chromiumProcesses": 6,
+      "coreRssMB": 3
+    },
+    {
+      "group": "memory",
+      "name": "lecteur gros fichier 100 Mo",
+      "jsHeapUsedMB": 2.1,
+      "domNodes": 398,
+      "chromiumPssMB": 182.2,
+      "chromiumProcesses": 6,
+      "coreRssMB": 7.4
+    }
+  ]
+}
